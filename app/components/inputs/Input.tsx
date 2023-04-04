@@ -24,7 +24,7 @@ const Input: React.FC<InputProps> = ({ id, label, type, disable, formatPrice, re
             disabled={disable} {...register(id, { required })} 
             placeholder=" " 
             type={type}
-            className={`peer w-full p-4 pt-6 font-light bg-white border-2 rounded-md outline-none transition disabled:opacity-70 disabled:cursor-not-allowed 
+            className={`peer w-full p-3 pt-6 font-light bg-white border-2 rounded-md outline-none transition disabled:opacity-70 disabled:cursor-not-allowed 
             ${formatPrice ? "pl-9" : 'pl-4'}    
             ${errors[id] ? 'border-rose-500 focus:border-rose-500' : 'border-neutral-300 focus:border-black'}`} />
             <label 

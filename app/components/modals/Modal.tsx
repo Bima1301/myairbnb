@@ -69,13 +69,13 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, onSubmit, title, body, f
                             {/* END HEADER */}
 
                             {/* START BODY */}
-                            <div className="relative p-6 flex-auto">
+                            <div className="relative px-6 py-3 flex-auto">
                                 {body}
                             </div>
                             {/* END BODY */}
 
                             {/* START FOOTER */}
-                            <div className="flex flex-col gap-2 p-6">
+                            <div className="flex flex-col gap-2 px-6 py-3">
                                 <div className="flex flex-row items-center gap-4 w-full">
                                     {secondaryAction && secondaryActionLabel && (
                                         <Button
@@ -91,6 +91,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, onSubmit, title, body, f
                                     onClick={handleSubmit}
                                     />
                                 </div>
+                                {footer}
                             </div>
                             {/* END FOOTER */}
 
