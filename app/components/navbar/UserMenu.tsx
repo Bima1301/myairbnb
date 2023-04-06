@@ -1,41 +1,43 @@
 'use client';
 
-import {AiOutlineMenu} from 'react-icons/ai';
+import { AiOutlineMenu } from 'react-icons/ai';
 import Avatar from '../Avatar';
-import { useCallback, useState,useEffect } from 'react';
+import { useCallback, useState, useEffect } from 'react';
 import MenuItem from './MenuItem';
-import useRegisterModal from '@/app/hooks/useRegisterMOdal';
+import useRegisterModal from '@/app/hooks/useRegisterModal';
+import useLoginModal from '@/app/hooks/useLoginModal';
 
 const UserMenu = () => {
     const registerModal = useRegisterModal();
-    const [isOpen,setIsOpen] = useState(false);
+    const loginModal = useLoginModal();
+    const [isOpen, setIsOpen] = useState(false);
     const toggleOpen = useCallback(() => {
         setIsOpen((value) => !value);
-    },[]);
-    useEffect (() => {
-        if(isOpen){
-            document.addEventListener('click',toggleOpen);
+    }, []);
+    useEffect(() => {
+        if (isOpen) {
+            document.addEventListener('click', toggleOpen);
         }
         return () => {
-            document.removeEventListener('click',toggleOpen);
+            document.removeEventListener('click', toggleOpen);
         }
     });
-    return ( 
+    return (
         <div className="relative">
             <div className="flex flex-row items-center gap-3">
                 <div
-                className="hidden md:block text-sm font-semibold py-3 px-4 rounded-full hover:bg-neutral-100 transition cursor-pointer"
-                onClick={() => {}}
+                    className="hidden md:block text-sm font-semibold py-3 px-4 rounded-full hover:bg-neutral-100 transition cursor-pointer"
+                    onClick={() => { }}
                 >
                     Airbnb your home
                 </div>
-                <div 
-                onClick={toggleOpen}
-                className="p-4 md:py-1  md:px-2 border-[1px] border-black-200 flex flex-row items-center gap-3 rounded-full cursor-pointer hover:shadow-md transition"
+                <div
+                    onClick={toggleOpen}
+                    className="p-4 md:py-1  md:px-2 border-[1px] border-black-200 flex flex-row items-center gap-3 rounded-full cursor-pointer hover:shadow-md transition"
                 >
                     <AiOutlineMenu />
                     <div className='hidden md:block'>
-                        <Avatar/>
+                        <Avatar />
                     </div>
                 </div>
             </div>
@@ -43,14 +45,14 @@ const UserMenu = () => {
                 <div className='absolute rounded-xl shadow-md w-[40vw] md:w-3/4 bg-white overflow-hidden right-0 top-12 text-sm'>
                     <div className='flex flex-col cursor-pointer'>
                         <>
-                            <MenuItem onClick={() => {}} label='Login'/>
-                            <MenuItem onClick={registerModal.onOpen} label='Sign Up'/>
+                            <MenuItem onClick={() => { }} label='Login' />
+                            <MenuItem onClick={registerModal.onOpen} label='Sign Up' />
                         </>
                     </div>
                 </div>
             )}
         </div>
-     );
+    );
 }
- 
+
 export default UserMenu;
