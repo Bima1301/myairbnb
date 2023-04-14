@@ -1,7 +1,6 @@
 'use client';
 
 import { signIn } from 'next-auth/react';
-import axios from "axios";
 import { useCallback, useState } from "react";
 import { AiFillGithub } from 'react-icons/ai';
 import { FcGoogle } from 'react-icons/fc';
@@ -83,8 +82,8 @@ const LoginModal = () => {
     const footerContent = (
         <div className="flex flex-col gap-4 mt-3 ">
             <hr />
-            <Button clasName="hover:bg-gray-700 hover:text-white hover:border-transparent" outline label="Continue with Google" icon={FcGoogle} onClick={() => { }} />
-            <Button clasName="hover:bg-gray-700 hover:text-white hover:border-transparent" outline label="Continue with GitHub" icon={AiFillGithub} onClick={() => { }} />
+            <Button clasName="hover:bg-gray-700 hover:text-white hover:border-transparent" outline label="Continue with Google" icon={FcGoogle} onClick={() => signIn('google')} />
+            <Button clasName="hover:bg-gray-700 hover:text-white hover:border-transparent" outline label="Continue with GitHub" icon={AiFillGithub} onClick={() => signIn('github')} />
             <div className="text-neutral-500 text-center mt-1 mb-3 font-light">
                 <div className="flex flex-row items-center gap-2 justify-center">
                     <div>
